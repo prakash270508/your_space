@@ -34,13 +34,14 @@
 }
 
 .box-1{
-    background: linear-gradient(to right , rgb(252, 252, 142) , rgb(255, 255, 94) , yellow);
+    background: linear-gradient(to right , #f7af7b , #ff6900 , rgb(247, 133, 52))
 }
+
 .box-2{
     background: linear-gradient(to right , rgb(153, 153, 249), rgb(79, 79, 252), blue);
 }
 .box-3{
-    background: linear-gradient(to right , rgb(153, 206, 249), rgb(79, 223, 252), rgb(0, 217, 255));
+    background: linear-gradient(to right , rgb(0, 76, 138), rgb(23, 113, 131), rgb(44, 92, 101));
 }
 
 .mainText{
