@@ -14,7 +14,7 @@ export default function Bargraph() {
           {
             label: "Number of Students",
             data: [20000, 5000, 10000, 5000],
-            backgroundColor: ["#ff6b6b", "red", "green" , "yellow"],
+            backgroundColor: ["#ff6900", "red", "green" , "#ffc800"],
           },
         ],
       };

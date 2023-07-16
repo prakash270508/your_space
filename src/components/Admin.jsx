@@ -36,7 +36,7 @@ export default function Admin() {
           </div>
           <div className="mt-4 mx-4">
             <div className="widgets">
-              <FaHome size={30} />
+              <FaHome size={"30"} />
               <span className="mx-4 mt-1">
                 <h5>
                   <b

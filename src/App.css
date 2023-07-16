@@ -22,11 +22,11 @@
 }
 
 .texts:hover{
-    color: #80fde8;
+    color: #7091ff;
 }
 
 .selectedText{
-    color: #80fde8;
+    color: #7091ff;
 }
 
 .dashboard{
@@ -34,14 +34,14 @@
 }
 
 .box-1{
-    background: linear-gradient(to right , #f7af7b , #ff6900 , rgb(247, 133, 52))
+    background: linear-gradient(to right , #f7af7b, rgb(247, 133, 52) , #ff6900 )
 }
 
 .box-2{
     background: linear-gradient(to right , rgb(153, 153, 249), rgb(79, 79, 252), blue);
 }
 .box-3{
-    background: linear-gradient(to right , rgb(0, 76, 138), rgb(23, 113, 131), rgb(44, 92, 101));
+    background: linear-gradient(to right ,  rgb(23, 113, 131), rgb(44, 92, 101) , rgb(0, 76, 138));
 }
 
 .mainText{
