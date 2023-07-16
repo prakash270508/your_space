@@ -1,7 +1,38 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 export default function Register() {
+
+  const [form, setForm] = useState({
+    email: "",
+    password: "",
+    cPassword : ""
+  });
+
+  const navigate = useNavigate();
+
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (form.email == "" || form.password == "" || form.cPassword == "") {
+      return toast.warning("Please fill all details");
+    }
+
+    if(form.cPassword != form.password){
+      return toast.error("Passwords not match")
+    }
+
+    toast.success("Registration Successfull");
+
+    navigate("/admin");
+  };
+
   return (
     <div>
       <div className="login-root">
@@ -112,25 +143,25 @@ export default function Register() {
                       </a>
                     </h1>
                   </div>
-                  <form id="stripe-login">
+                  <form id="stripe-login" onSubmit={handleSubmit}>
                     <div className="field padding-bottom--24">
                       <label htmlFor="email">Email</label>
-                      <input type="email" name="email" />
+                      <input type="email" name="email" onChange={handleChange} />
                     </div>
                     <div className="field padding-bottom--24">
                       <div className="grid--50-50">
                         <label htmlFor="password">Password</label>
                       </div>
-                      <input type="password" name="password" />
+                      <input type="password" name="password"  onChange={handleChange} />
                     </div>
                     <div className="field padding-bottom--24">
                       <div className="grid--50-50">
                         <label htmlFor="password">Confirm Password</label>
                       </div>
-                      <input type="password" name="confirm-password" />
+                      <input type="password" name="cPassword"  onChange={handleChange} />
                     </div>
                     <div className="field padding-bottom--24">
-                      <input type="submit" name="submit" value="Register" />
+                      <input type="submit" name="submit" value="Register" onClick={handleSubmit}/>
                     </div>
                     <div className="field padding-bottom--24 d-flex">
                         Already have account ?

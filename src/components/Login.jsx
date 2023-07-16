@@ -1,7 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
+  const [form, setForm] = useState({
+    email: "",
+    password: "",
+  });
+
+  const navigate = useNavigate();
+
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (form.email == "" || form.password == "") {
+      return toast.warning("Please fill all details");
+    }
+
+    toast.success("Logged in");
+
+    navigate("/admin");
+  };
+
   return (
     <div>
       <div className="login-root">
@@ -112,10 +137,15 @@ export default function Login() {
                       </a>
                     </h1>
                   </div>
-                  <form id="stripe-login">
+                  <form id="stripe-login" onSubmit={handleSubmit}>
                     <div className="field padding-bottom--24">
                       <label htmlFor="email">Email</label>
-                      <input type="email" name="email" />
+                      <input
+                        type="email"
+                        name="email"
+                        onChange={handleChange}
+                        value={form.email}
+                      />
                     </div>
                     <div className="field padding-bottom--24">
                       <div className="grid--50-50">
@@ -124,14 +154,24 @@ export default function Login() {
                           <a href="#">Forgot your password?</a>
                         </div>
                       </div>
-                      <input type="password" name="password" />
+                      <input
+                        type="password"
+                        name="password"
+                        onChange={handleChange}
+                        value={form.password}
+                      />
                     </div>
                     <div className="field padding-bottom--24">
-                      <input type="submit" name="submit" value="Login" />
+                      <input
+                        type="submit"
+                        name="submit"
+                        value="Login"
+                        onClick={handleSubmit}
+                      />
                     </div>
                     <div className="field padding-bottom--24 d-flex">
                       Don't have account ?
-                      <Link className="ssolink mx-2" to={'/register'}>
+                      <Link className="ssolink mx-2" to={"/register"}>
                         Register
                       </Link>
                     </div>
