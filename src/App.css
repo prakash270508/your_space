@@ -84,4 +84,43 @@
     background-color: #3bcf9a;
   }
   
+.profile{
+    display: flex;
+}
+
+.mainName{
+    margin-left: 10px;
+}
+
+@media screen and (max-width : 1125px){
+    .profile{
+        display: block;
+    }
+    .profileImg{
+        margin-left: 30%;
+    }
+    .selectedText{
+        display: none;
+    }
+    .texts{
+        display: none;
+    }
+    .logoutbtn{
+        float: inline-end;
+    }
+}
+
+@media screen and (max-width : 800px){
+    .mainRow{
+        display: block;
+    }
+    .name{
+        margin-left: -20%;
+    }
+    .shortPart{
+        display: block;
+        width: 100%;
+    }
+}
+
 

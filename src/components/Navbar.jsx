@@ -17,26 +17,15 @@ export default function Navbar() {
             style={{ height: "2.5vw" }}
             alt=""
           />
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button>
         </div>
 
-        {isAdminPage && (
-          <div className="d-flex mx-4">
+        {/* {isAdminPage && (
+          <div className="mx-4 logoutbtn">
             <Link to={'/'}>
             <button className="btn btn-secondary">Logout</button>
             </Link>
           </div>
-        )}
+        )} */}
       </nav>
     </div>
   );

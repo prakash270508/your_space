@@ -9,6 +9,7 @@ import {
   FaMedkit,
 } from "react-icons/fa";
 import Dashboard from "./MainPage/Dashboard";
+import { Link } from "react-router-dom";
 
 export default function Admin() {
   const [selected, setSelected] = useState("dashboard");
@@ -17,15 +18,16 @@ export default function Admin() {
     <>
       <div className="row">
         <div className="col-2 sideBar">
-          <div className="profile mx-2 my-4">
-            <div className="d-flex mx-4" style={{ cursor: "pointer" }}>
+          <div className="mx-2 my-4">
+            <div className="profile mx-4" style={{ cursor: "pointer" }}>
               <img
                 src="https://themewagon.github.io/purple-react/static/media/face1.42d41e61.jpg"
                 style={{ height: "50px", borderRadius: "50%" }}
+                className="profileImg"
                 alt=""
               />
-              <div className="mx-3 my-1">
-                <h5>
+              <div className="my-1 mainName">
+                <h5 className="name">
                   <b>Prakash</b>
                 </h5>
                 <h6 style={{ marginTop: "-10px" }}>
@@ -35,28 +37,27 @@ export default function Admin() {
             </div>
           </div>
           <div className="mt-4 mx-4">
-            <div className="widgets">
+            <div className="widgets" onClick={() => setSelected("dashboard")}>
               <FaHome size={"30"} />
-              <span className="mx-4 mt-1">
+              <span className="mx-3 mt-1">
                 <h5>
                   <b
                     className={
                       selected == "dashboard" ? "selectedText" : "texts"
                     }
-                    onClick={() => setSelected("dashboard")}
+                    
                   >
                     Dashboard
                   </b>
                 </h5>
               </span>
             </div>
-            <div className="widgets">
+            <div className="widgets" onClick={() => setSelected("icons")}>
               <FaIcons size={"30"} />
-              <span className="mx-4 mt-1">
+              <span className="mx-3 mt-1">
                 <h5>
                   <b
                     className={selected == "icons" ? "selectedText" : "texts"}
-                    onClick={() => setSelected("icons")}
                   >
                     Icons
                   </b>
@@ -65,7 +66,7 @@ export default function Admin() {
             </div>
             <div className="widgets">
               <FaTable size={"30"} />
-              <span className="mx-4 mt-1">
+              <span className="mx-3 mt-1">
                 <h5>
                   <b
                     className={selected == "table" ? "selectedText" : "texts"}
@@ -77,8 +78,8 @@ export default function Admin() {
               </span>
             </div>
             <div className="widgets">
-              <FaUser size={"30"} />
-              <span className="mx-4 mt-1">
+              <FaUser className="icon" size={"30"} />
+              <span className="mx-3 mt-1">
                 <h5>
                   <b
                     className={selected == "user" ? "selectedText" : "texts"}
@@ -91,7 +92,7 @@ export default function Admin() {
             </div>
             <div className="widgets">
               <FaChartBar size={"30"} />
-              <span className="mx-4 mt-1">
+              <span className="mx-3 mt-1">
                 <h5>
                   <b
                     className={
@@ -106,7 +107,7 @@ export default function Admin() {
             </div>
             <div className="widgets">
               <FaLock size={"30"} />
-              <span className="mx-4 mt-1">
+              <span className="mx-3 mt-1">
                 <h5>
                   <b
                     className={
@@ -121,7 +122,7 @@ export default function Admin() {
             </div>
             <div className="widgets">
               <FaMedkit size={"30"} />
-              <span className="mx-4 mt-1 mb-5">
+              <span className="mx-3 mt-1 mb-5">
                 <h5>
                   <b
                     className={
@@ -137,6 +138,9 @@ export default function Admin() {
           </div>
         </div>
         <div className="col-10">
+          <Link to={'/'} className="mx-3" style={{float:"right"}}>
+            <button className="btn btn-secondary">Logout</button>
+          </Link>
           {selected == "dashboard" ? (
             <Dashboard />
           ) : (
